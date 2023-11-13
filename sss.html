@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- Input tag -->
+    <form>
+        <div>
+            <label for="first_name">First Name</label><br>
+            <input type="text" id="first_name" name="first_name">
+        </div>
+        <div>
+            <label for="last_name">Last Name</label><br>
+            <input type="text" id="last_name" name="last_name">
+        </div>
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" id="username" required minlength="2">
+        </div>
+        <br>
+        
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" required minlength="3">
+
+        </div>
+        <div>
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+    <br>
+    <br>
+
+<!-- Video tag -->
+    <video controls width="320" height="240">
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    
+      <form>
+        <div>
+          <label for="rating">Rating</label>
+          <input type="range" min="1" max="5" id="rating" name="rating" list="ratings">
+          <datalist id="ratings">
+              <option value="1" label="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+          </datalist>
+        </div>
+        <button type="submit">Submit Rating</button>
+      </form>
+      <br>
+      <br>
+
+<!-- Radio Input tag -->
+<form method="post">
+    <fieldset id ="size">
+        <label>
+            <input type="radio" value="2" name="size">2-person table
+        </label>
+        <label>
+            <input type="radio" value="4" name="size" checked>4-person table
+        </label>
+        <label>
+            <input type="radio" value="6" name="size">6-person table
+        </label>
+    </fieldset>
+    <br>
+    <fieldset id="location">
+        <label>
+            <input type="radio" value="indoors" name="location" checked>Indoors
+        </label>
+        <label>
+            <input type="radio" value="outdoors" name="location">Outdoors
+        </label>
+    </fieldset>
+    <br>
+    <button type="submit">Book Table</button>
+</form>
+<br>
+<br>
+
+
+<!-- Interactive form Element -->
+<form method="post">
+    <div>
+        <label for="booking_date">Booking Date</label>
+        <input type="date" id="booking_date" name="booking_date">
+    </div>
+    <div>
+        <label for="booking_people">Number of People</label>
+        <input type="range" id="booking_people" name="booking_people" min="1" max="10" oninput="this.nextElementSibling.value=this.value">
+        <output>4</output>
+    </div>
+    <div>
+        <label for="booking_location">Booking location</label>
+        <input id="booking_location" name="booking_location" list="locations">
+        <datalist id="locations">
+            <option value="Dropdown"></option>
+            <option value="Updown"></option>
+        </datalist>
+    </div>
+    <div>
+        <select name="booking_locations" id="booking_locations">
+            <option value="Dropdown">Dropdown</option>
+            <option value="Updown">Updown</option>
+        </select>
+    </div>
+</form>
+
+    
+</body>
+</html>
