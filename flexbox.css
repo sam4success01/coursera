@@ -1,0 +1,63 @@
+
+/* SearchBox */
+.container{
+    display:inline-flex;
+    flex: 1 1 300px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+.icon{
+    padding: 0.8rem;
+}
+
+.searchbox{
+    border: 0;
+    flex: 1;
+}
+.searchbutton{
+    color: white;
+    background: #0f4a8a;
+    border: 0;
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+/* Navigation Menu */
+.container2{
+    margin: 0;
+    padding 0;
+    background-color: #2b2d42;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+}
+.container2 li{
+    list-style-type: none;
+}
+.container2 a{
+    display: inline-block;
+    padding: 25px;
+    margin: 0 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+.container2 a:hover{
+    background-color: lightsteelblue;
+}
+
+/* Pasta menu */
+.container3{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+}
+img{
+    border: 0;
+    margin: 5px;
+}
