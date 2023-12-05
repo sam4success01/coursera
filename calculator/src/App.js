@@ -53,8 +53,7 @@ function App() {
         type='Number'
         placeholder='Type a number'
          />
-          <br />
-          <br />
+     
          <button onClick={plus}>Add</button>
          <button onClick={minus}>Subtract</button>
          <button onClick={times}>Multiply</button>
