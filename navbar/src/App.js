@@ -1,6 +1,7 @@
 import Homepage from './Homepage';
 import AboutMe from './AboutMe';
 import Contact from './Contact';
+import SignUp from './SignUp';
 import {Routes, Route, Link} from 'react-router-dom';
 import rooftop from './asset/images/rooftop.jpeg';
 import ReactPlayer from 'react-player';
@@ -19,6 +20,7 @@ function App() {
         <Link to="/" className="nav-item">Homepage</Link>
         <Link to="/AboutMe" className="nav-item">About Me</Link>
         <Link to="/Contact" className='nav-item'>Contact</Link>
+        <Link to="/SignUp" className='nav-item'>SignUp</Link>
       </nav>
 
   
@@ -28,6 +30,7 @@ function App() {
         <Route path = "/" element={<Homepage/>} />
         <Route path="/AboutMe" element={<AboutMe/>} />
         <Route path="/Contact" element={<Contact/>} />
+        <Route path="/SignUp" element={<SignUp/>} />
       </Routes>
 
      
