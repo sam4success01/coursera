@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    .container {
+        padding-top: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333; /* Darker font for better readability */
+    }
+
+    .btn-light {
+        background-color: #008cba; /* A more vibrant button color */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .table th {
+        background-color: #008cba; /* Matching vibrant header */
+        color: white;
+    }
+
+    .table td, .table th {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-size: small;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .btn-primary, .btn-danger {
+        margin: 5px;
+    }
+
+    /* Ensuring buttons are side by side */
+    .action-buttons .btn {
+        font-size: small;
+    }
+
+    .table td {
+    white-space: nowrap;
+    }
+
+    .table-responsive {
+    /* Ensures the container is scrollable */
+    max-height: 400px; /* Adjust based on your needs */
+    }
+
+    .table-responsive thead th {
+    /* Keeps the header fixed by positioning it sticky at the top */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    }
+</style>
+
+<div class="container">
+    <h1>Fund Collection Report</h1>
+
+    <a href="{% url 'main_attendance' %}" class="btn btn-light float-xxl-end">Add Record</a>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Session</th>
+                    <th scope="col">Minister</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Offering</th>
+                    <th scope="col">Tithe</th>
+                    <th scope="col">Seed</th>
+                    <th scope="col">Vow</th>
+                    <th scope="col">First Fruit</th>
+                    <th scope="col">Children Offering</th>
+                    <th scope="col">Teenagers Offering</th>
+                    <th scope="col">Total Cash Collection</th>
+                    <th scope="col">Cheque</th>
+                    <th scope="col">POS</th>
+                    <th scope="col">Foreign Currency</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{record.date|date:"d-M-Y"}}</td>
+                    <td>{{record.session|proper_case}}}</td>
+                    <td>{{record.minister|proper_case}}}</td>
+                    <td>{{record.message|proper_case}}}</td>
+                    <td>{{record.offering_main}}</td>
+                    <td>{{record.tithe}}</td>
+                    <td>{{record.seed}}</td>
+                    <td>{{record.vow}}</td>
+                    <td>{{record.firstfruit}}</td>
+                    <td>{{record.offering_children}}</td>
+                    <td>{{record.offering_teenagers}}</td>
+                    <td>{{record.total_no_of_offering}}</td>
+                    <td>{{record.cheque}}</td>
+                    <td>{{record.pos}}</td>
+                    <td>{{record.foreign_currency}}</td>
+                    
+                    <td class="action-buttons">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{% url 'edit_record' record.id %}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal" data-delete-url="{% url 'delete_records' record.id %}">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this record?
+        </div>
+        <div class="modal-footer">
+        <a href="#" class="btn btn-danger" id="deleteConfirmButton">Yes</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const deleteConfirmationModal = document.getElementById('deleteConfirmationModal');
+      deleteConfirmationModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        const button = event.relatedTarget;
+        // Extract info from data-* attributes
+        const deleteUrl = button.getAttribute('data-delete-url');
+        // Update the modal's 'Yes' button with the delete URL
+        const deleteButton = deleteConfirmationModal.querySelector('#deleteConfirmButton');
+        deleteButton.href = deleteUrl;
+      });
+    });
+    </script>
+    
+
+
+
+{% endblock %}

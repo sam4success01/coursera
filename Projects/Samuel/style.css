@@ -1,0 +1,383 @@
+body, html {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh; /* Contain scrolling within the viewport height */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.toggler {
+    display: none;
+}
+
+.hamburger {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem; /* Adjust the size of the hamburger */
+    height: 2rem; /* Adjust the size of the hamburger */
+    background: transparent;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 100%;
+    margin: 4px 0;
+    transition: all 0.3s linear;
+}
+
+.text-container {
+    width: 60%; /* Set the width of the text container */
+    text-align: left; /* Align text to the left */
+    padding-left: 3rem;
+    padding-top: 5rem;
+}
+
+.text-container h1{
+    font-size: 55px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    transition: width 0.5s ease;
+    overflow-x: hidden;
+}
+
+.menu ul {
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+#toggler:checked ~ .menu {
+    width: 250px; /* Adjust the width of the sidebar */
+}
+
+#toggler:checked ~ .hamburger div:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+#toggler:checked ~ .hamburger div:nth-child(2) {
+    opacity: 0;
+}
+
+#toggler:checked ~ .hamburger div:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+section#home {
+    background-color: red;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,160L80,149.3C160,139,320,117,480,133.3C640,149,800,203,960,202.7C1120,203,1280,149,1360,122.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>') repeat-x;
+    animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+
+
+.sliding-image {
+    position: absolute;
+    bottom: 0%;
+    right: -100%; /* Start off-screen to the right */
+    width: 50%; /* Adjust based on your requirement */
+    height: auto; /* Maintain aspect ratio */
+    animation: slideIn 3s forwards; /* Slide-in animation */
+}
+
+@keyframes slideIn {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0px; /* Adjust so the image slides to the desired position */
+    }
+}
+
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+section#home {
+    background-color: red; /* Fallback color */
+    /* Create a striped pattern using linear-gradient */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1) 0px,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 50px
+    );
+    background-size: 200% 200%; /* Enlarge background to enhance the animation effect */
+    animation: moveBackground 10s linear infinite; /* Adjust time as needed */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* About page presentation */
+#about {
+    position: relative; /* Container for the absolute positioning */
+    overflow: hidden; /* Prevents content overflow during animation */
+}
+
+.content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Occupies 50% of the page width */
+    height: 100%;
+}
+
+
+
+.content-item.active {
+    opacity: 1; /* Visible */
+}
+
+
+
+.content-item {
+    opacity: 0; /* Start invisible */
+    transition: opacity 2s ease-in-out; /* Smooth transition for fade effect */
+    position: absolute; /* Overlay content items */
+    left: 0;
+    width: 50%;
+    max-height: 100vh; /* Sets a maximum height based on the viewport height */
+    overflow-y: auto; /* Enables vertical scrolling if the content exceeds max-height */
+    padding: 20px; /* Optional: Adds some inside space */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Maintains the shadow effect */
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    display: none;
+}
+
+.content-item.active {
+    opacity: 1; /* Make active item fully visible */
+    transition: opacity 2s ease-in-out;
+    display: block; /* Only the active content item is visible */
+}
+
+#about p, #about-2 p {
+    font-size: 0.8rem; /* Reduces the size of p tags */
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(20px); /* Start slightly below their final position */
+    transition: all 0.6s ease-out; /* Smooth transition for the animation */
+}
+
+/* Add this class dynamically to p tags when animating */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+.shadow-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+}
+
+.text-content, .logo-content {
+    flex: 1;
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.icon-text-container {
+    display: flex; /* Establishes a flex container */
+    align-items: center; /* Vertically aligns the icon and text */
+    margin-bottom: 16px; /* Adds space between each icon-text pair */
+}
+
+.icon-left {
+    margin-right: 10px; /* Adds some space between the icon and the text */
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+    color: #007bff; /* Example color for the icon */
+}
+
+.p-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 100%; /* Ensure the paragraph utilizes the available space */
+    text-align: justify;
+}
+
+/* Logo in about page */
+
+.shadow-box {
+    display: flex; /* Enables Flexbox layout */
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+}
+
+
+
+.logo-image {
+    width: 100%; /* Logo image takes the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Section 3: About page -2 */
+
+#about-2 {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Creates space between the text and image */
+    padding: 20px;
+}
+
+#about-2 .about-text {
+    flex: 1; /* Allows text content to fill the space */
+    padding: 20px;
+    order: 1; /* Ensures text content comes first on the left */
+}
+
+#about-2 .about-image {
+    flex: 1; /* Allows image to fill the space */
+    display: flex;
+    justify-content: center; /* Center the image in its container */
+    align-items: center; /* Align the image vertically */
+    order: 2; /* Ensures image comes second, on the right */
+}
+
+#about-2 .about-image img {
+    max-width: 100%; /* Maximum width of the image is 100% of its container */
+    height: 70vh; /* Sets the image height to 60% of the viewport height */
+    object-fit: cover; /* Ensures the image covers the area nicely, useful for maintaining aspect ratio */
+    border-radius: 50%; /* Keeps the circular shape */
+}
+
+.text-scroll-container {
+    max-height: 350px; /* Adjust based on your needs */
+    overflow-y: auto; /* Shows scrollbar if content overflows */
+    padding-right: 15px; /* Optional: Compensates for scrollbar width */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) { /* Targets screens up to 768px wide, common for tablets and down */
+    .content-item {
+        width: 100%;
+        height: 70%;
+    }
+
+    .logo-image {
+        width: 100%; /* Logo image takes the full width of its container */
+        padding-top: 320%;
+    }
+
+    .sliding-image {
+        width: 100%; /* Adjust based on your requirement */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .text-container {
+        width: 100%; /* Set the width of the text container */
+        height: 80%;
+        font-size: 14px;
+        padding-left: 1rem;
+        padding-top: 2.5rem;
+    }
+    
+    .text-container h1{
+        font-size: 45px;
+    }
+
+    /* Section 3 About Page 2 */
+    #about-2 {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally, useful for when flex-direction is column */
+    }
+
+    #about-2 .about-text, 
+    #about-2 .about-image {
+        order: initial; /* Resets the order */
+        flex: none; /* Removes the flex grow/shrink ratios */
+        width: 100%; /* Full width */
+    }
+
+    #about-2 .about-image img {
+        max-width: 50%; /* Adjust the image size for mobile */
+        height: auto; /* Adjusts height automatically to maintain aspect ratio */
+        margin-bottom: 20px; /* Adds some space below the image */
+    }
+
+}
+
+
+
+

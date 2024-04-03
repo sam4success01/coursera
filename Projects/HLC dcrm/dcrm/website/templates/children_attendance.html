@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Children Attendance</h2>
+<form action="" method="post">{% csrf_token %}
+    {{ wizard.management_form }}
+    <table>
+    {% for field in wizard.form.visible_fields %}
+        <tr>
+            <th>{{ field.label_tag }}</th>
+            <td>{{ field }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Previous step</button>
+    <input type="submit" value="Continue" />
+</form>
+{% endblock %}
+
+
+

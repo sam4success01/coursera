@@ -1,0 +1,59 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django CRM</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <!-- Offcanvas Sidebar, shown only in mobile view -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+      
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            {% include 'sidebar.html' %}
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container-fluid ">
+        <div class="row mt-5 pt-3">
+            <!-- Regular sidebar for larger screens; removed from mobile view using Bootstrap classes -->
+            <div class="sidebar-fixed-width col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
+                {% include 'sidebar.html' %}
+            </div>
+
+            <!-- Main content that adjusts depending on the presence of the sidebar -->
+            <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
+              {% if messages %}
+              {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              {% endfor %}
+          {% endif %}
+
+
+                {% block content %}
+                <!-- Placeholder for where your page's main content goes -->
+                
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper for enabling dynamic features like the offcanvas sidebar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

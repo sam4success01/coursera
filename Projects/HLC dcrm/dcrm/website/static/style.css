@@ -1,0 +1,14 @@
+.sidebar-fixed-width {
+  flex: 0 0 20%; /* Adjust this value for the sidebar width */
+  max-width: 20%; /* Ensures the sidebar doesn't exceed the set width */
+  min-height: 100vh; /* Full height */
+  overflow-y: auto; /* Allows scrolling */
+  position: fixed; /* Makes the sidebar fixed position */
+  top: 56px; /* Height of the navbar */
+}
+
+.content-fixed-width {
+  flex: 0 0 80%; /* Adjust this value for the content width */
+  max-width: 80%; /* Ensures the content area doesn't exceed the set width */
+  margin-left: 20%; /* Pushes the content area to the right of the sidebar */
+}

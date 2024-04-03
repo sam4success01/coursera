@@ -1,0 +1,36 @@
+{% load static %}
+
+<a href="{% url 'main_attendance' %}" type="button" class="btn btn-light float-xxl-end">
+    Add New Record
+</a>
+<!-- Import CSV Button -->
+<button type="button" class="btn btn-primary float-xxl-end mx-2" data-bs-toggle="modal" data-bs-target="#importCsvModal">
+    Import CSV
+</button>
+
+<!-- Modal for CSV Import -->
+<div class="modal fade" id="importCsvModal" tabindex="-1" aria-labelledby="importCsvModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importCsvModalLabel">Import CSV Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'import_csv' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="csvFile" class="form-label">Select CSV file</label>
+                        <input class="form-control" type="file" id="csvFile" name="csv_file" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Import</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+                <!-- Download Template Button -->
+                <a href="{% static 'csv/ushering_template.csv' %}" download="ushering_template.csv" class="btn btn-info">Download Template</a>
+            </div>
+        </div>
+    </div>
+</div>

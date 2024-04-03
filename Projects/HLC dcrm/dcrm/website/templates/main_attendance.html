@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+<form action="" method="post">{% csrf_token %}
+    {{ wizard.management_form }}
+    <table>
+    {% for field in wizard.form.visible_fields %}
+        <tr>
+            <th>{{ field.label_tag }}</th>
+            <td>{{ field }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% if wizard.steps.prev %}
+    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">First Step</button>
+    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">Previous</button>
+    {% endif %}
+    <input type="submit" value="Submit"/>
+</form>
+{% endblock %}

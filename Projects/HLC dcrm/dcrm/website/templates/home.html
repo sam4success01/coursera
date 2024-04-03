@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="text-center">
+    <!-- Uncomment if you want to greet the user -->
+    <!-- <h3>Hi {{ user.first_name }} {{ user.last_name }}</h3> -->
+    <br><br>
+    <h1>Welcome to Highland Church Data Management</h1>
+</div>
+
+<!-- Use Bootstrap's img-fluid class for responsive styling -->
+<img src="{% static 'home.jpg' %}" class="rounded mx-auto d-block img-fluid" alt="Home">
+
+{% endblock %}
