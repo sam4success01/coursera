@@ -8,7 +8,7 @@ status = 200
 
 [dev]
   command = "python3 manage.py runserver"
-  publish = "dist"  # Adjust based on where your static files are located
+
   port = 8888  # Port for Netlify Dev's local server
   targetPort = 8000  # Port your own dev server runs on (e.g., Django's dev server)
   autoLaunch = true
