@@ -4,11 +4,11 @@ to = "/home.html"
 status = 200
 
 [build]
-  publish = "website/templates" # The directory of your static files, adjust as needed
+  publish = "website" # The directory of your static files, adjust as needed
 
 [dev]
   command = "python3 manage.py runserver"
-  publish = "website/templates"  # Adjust based on where your static files are located
+  publish = "website"  # Adjust based on where your static files are located
   port = 8888  # Port for Netlify Dev's local server
   targetPort = 8000  # Port your own dev server runs on (e.g., Django's dev server)
   autoLaunch = true
