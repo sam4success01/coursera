@@ -4,7 +4,7 @@ to = "/home.html"
 status = 200
 
 [build]
-  
+  functions = "/"
 
 [dev]
   command = "python3 manage.py runserver"
