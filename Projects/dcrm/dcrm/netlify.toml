@@ -1,6 +1,6 @@
 [[redirects]]
 from = "/*"
-to = "/home.html"
+to = "/index.html"
 status = 200
 
 [build]
@@ -13,3 +13,8 @@ status = 200
   targetPort = 8000  # Port your own dev server runs on (e.g., Django's dev server)
   autoLaunch = true
 
+
+
+[[edge_functions]]
+function = "transform-response"
+path = "/test"
