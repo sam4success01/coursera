@@ -11,6 +11,7 @@ django-formtools==2.3
 env==0.1.0
 filelock==3.12.2
 fonttools==4.50.0
+gunicorn==21.2.0
 html5lib==1.1
 numpy==1.26.4
 pandas==2.2.1
