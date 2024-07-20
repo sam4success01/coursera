@@ -1,0 +1,598 @@
+html, body {
+    scroll-snap-type: y mandatory; /* Force vertical snap */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    height: 100%; /* Full height to support snapping */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    padding-top: 70px; /* Adjust this value based on the actual height of your navbar */
+}
+
+.video-container, #page-contents {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    height: calc(100vh - 70px); /* Reduces the height to account for the navbar */
+    width: 100%; /* Full width */
+    position: relative; /* Needed for absolute positioning inside */
+    overflow-x: hidden; /* Hide overflow to avoid showing next section */
+}
+
+.content-item {
+    opacity: 1; /* Start visible */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    position: absolute; /* Overlay content items, full cover */
+    left: 0;
+    top: 0; /* Align to top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: block; /* Ensure it's always showing */
+}
+
+/* Add a class to manage hidden states when not in the current view */
+.hidden {
+    opacity: 0; /* Completely hide the content */
+    visibility: hidden; /* Remove from the flow, ignoring pointer events */
+    transition-delay: 0.5s; /* Delay the hiding to avoid flickers */
+}
+/* Ensure video fills the container without showing anything below */
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+.overlay {
+    position: absolute;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black; /* Black background for text */
+    color: white; /* White text color */
+    font-size: 1.5em; /* Adjust font size as needed */
+    padding: 5px 10px; /* Padding for some breathing space around text */
+    border-radius: 5px; /* Optional: adds rounded corners to the overlay */
+    z-index: 2;
+    text-align: center; /* Center the text inside the overlay */
+}
+
+.navbar {
+    background-color: #fff; /* White background for the navbar */
+    position: fixed; /* Fixed at the top of the viewport */
+    width: 100%; /* Span the full width of the viewport */
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+}
+.navbar-brand span.black {
+    color: #000; /* Ensure all non-colored text in the brand is black */
+}
+.navbar-brand span.blue {
+    color: blue;
+}
+.navbar-brand span.red {
+    color: red;
+}
+.nav-link {
+    color: black !important; /* Ensure all navbar links are black */
+}
+
+/*On mobile: Alternatively, if your theme uses .navbar-dark for dark-colored icons */
+.navbar-dark .navbar-toggler {
+    border-color: black; /* Optional: if you want the border of the button to be black */
+}
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+/* Our Services */
+#page-contents {
+    max-width: 100%; /* Limit the maximum width of the container */
+}
+.col-md-6 {
+    width: 35%; /* Full width of the column */
+    height: 20%;
+}
+.col-md-6:hover {
+    transform: scale(1.05);
+}
+.col-md-6 img {
+    width: 100%; /* Full width of the column */
+    max-height: 180px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures images cover the area nicely without distortion */
+    margin-bottom: 15px; /* Space below the image */
+    border-radius: 15px;
+}
+.read-more {
+    padding: 5px 5px; /* Button padding */
+    background-color: white; /* Button background color */
+    color: black; /* Button text color */
+    border: 2px solid white; /* Button border */
+    border-radius: 20px; /* Rounded corners for the button */
+    cursor: pointer;
+}
+.read-more:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+
+/* Insight Section */
+.bg-gray {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    background-color: #f8f9fa; /* Light grey background */
+}
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Provides padding around the content */
+}
+#page-content img {
+    width: 400px; /* Full width of the column */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-bottom: 20px; /* Space below the image */
+    border-radius: 15px;
+}
+#page-content .col-md-4 h3 {
+    font-size: 18px; /* Consistent font size */
+    color: #333; /* Dark grey color for text */
+    margin-bottom: 10px; /* Space below the headline */
+}
+#page-content .col-md-4 p {
+    font-size: 16px; /* Consistent font size */
+    color: #666; /* Lighter text color */
+}
+.recent-news {
+    margin-bottom: 20px;
+    padding: 10px; /* Padding inside each news box */
+}
+.recent-news h4 {
+    font-size: 16px; /* Consistent with other headlines */
+    margin-bottom: 5px; /* Space below the headline */
+}
+.recent-news p {
+    font-size: 14px; /* Slightly smaller font size for recent news */
+}
+
+
+
+
+/* About Sifrax */
+
+.video-sections {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    position: relative;
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-sections video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-box {
+    position: relative;
+    top: -50%; /* Start 10% from the bottom of the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Adjust the width as needed */
+    background-color: rgba(78, 76, 76, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 73%;
+   
+    
+}
+
+.overlay-box h2, .overlay-box p {
+    margin: 0;
+}
+
+.overlay-text {
+    text-align: justify;
+    font-size: 88%;
+}
+
+
+
+/* Mission and Vision Section */
+
+.picture-section {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    height: 40vh;
+    overflow: hidden;
+}
+
+.picture-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-section {
+    height: 60vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.content-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1%; /* Adjust spacing to about 1% */
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: transparent; /* Remove background color */
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
+}
+
+.tab-button:hover, .tab-button.active {
+    color: #0056b3;
+}
+
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+}
+
+.tab-content {
+    display: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#mission, #vision {
+    width: 60%;  /* Set the width */
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#value, #objectives{
+    font-size: small;
+
+}
+
+
+
+.tab-content.active {
+    display: block;
+}
+
+.content-box {
+    border: 1px solid transparent;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-logo {
+    max-width: 50px; /* Adjust size as needed */
+    max-height: 35px;
+    margin-bottom: 10px;
+}
+
+.row-wrapper .row .content-box {
+    margin: 10px auto;
+}
+
+.small-box {
+    width: 100%;
+    height: 200px; /* Set a fixed height for smaller boxes */   
+}
+
+
+
+
+/* Teams Profile */
+.team-section {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap; /* Change to wrap for mobile view */
+}
+
+.team-col {
+    width: 30%;
+    perspective: 1000px;
+    margin-bottom: 20px; /* Add margin between columns */
+}
+
+.team-box {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    width: 100%;
+    height: 235px;
+    cursor: pointer;
+}
+
+.team-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.team-box.is-flipped .team-box-inner {
+    transform: rotateY(180deg);
+}
+
+.team-box-front, .team-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.team-box-front {
+    background-color: #f1f1f1;
+}
+
+.team-box-back {
+    background-color: #ddd;
+    transform: rotateY(180deg);
+}
+
+.team-img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-section p{
+    font-size: small;
+    text-align:justify;
+    text-justify: auto;
+}
+
+
+
+
+
+/* Google Map Contact */
+.contact-us{
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+
+}
+.contact-us h2{
+    text-align: center;
+}
+
+.contact-map-section {
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.map-container {
+    width: 60%;
+    height: 500px; /* Adjust height as needed */
+}
+
+.contact-info {
+    width: 40%;
+    padding-left: 20px;
+}
+
+.contact-info h2 {
+    margin-top: 0;
+}
+
+
+
+
+
+
+/* Contact Us and Footer */
+.contact-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background: #F2F4F4;
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    border: 1px solid #ddd; /* Subtle border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5; /* Light line to separate the header */
+    background-color: #f8f9fa; /* Slightly off-white background for the header */
+    color: #333333; /* Dark color for contrast */
+    font-family: 'Arial', sans-serif; /* Professional, clean font choice */
+    font-size: 20px; /* Appropriate size for modal title */
+}
+
+.modal-body {
+    font-family: 'Arial', sans-serif; /* Maintain font consistency */
+    color: #666666; /* Softer color for body text, easier on the eyes */
+    padding: 20px; /* Ample padding for a spacious feel */
+    line-height: 1.5; /* Improve readability */
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5; /* Light line to separate the footer */
+    background-color: #f8f9fa; /* Consistency in header and footer background */
+    padding: 12px 20px; /* Balanced padding */
+}
+
+.modal-footer .btn {
+    background-color: #4CAF50; /* Pleasant green, stands out for actions */
+    color: white; /* White text on the button for readability */
+    border-radius: 5px; /* Rounded corners for the button */
+}
+
+.modal-footer .btn:hover {
+    background-color: #45a049; /* Slightly darker on hover for interaction feedback */
+}
+
+.btn-close {
+    background-color: #aaaaaa; /* Visible but subtle close button */
+    border-radius: 50%; /* Circular close button */
+}
+
+.btn-close:hover {
+    background-color: #999999; /* Slightly darker on hover for feedback */
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    scroll-snap-align: start; /* Snap to the start of the viewport */
+}
+
+.footer-logo {
+    max-width: 120px; /* Adjust size as needed */
+ 
+    display: block;
+}
+
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px; /* Space between links */
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ccc; /* Lighter color on hover */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px; /* Consistent margin for icons */
+}
+
+.social-icons img {
+    width: 24px; /* Set according to your icons' size */
+    transition: opacity 0.3s ease;
+}
+
+.social-icons img:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
+
+@media (max-width: 767px) {
+
+    .overlay {
+        font-size: 1.2em;
+        left: 2%;
+        right: 2%;
+        transform: none; /* Reset transform to ensure proper alignment */
+        width: 96%; /* Ensure the overlay takes up the correct width */
+    } 
+    
+    video {    
+        object-fit: fill;
+        
+    }
+
+    /* Google Map Contact */
+    .contact-map-section {
+        display:contents;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 350PX; /* Adjust height as needed */
+    }
+    
+    .contact-info {
+        width: 100%;
+        padding-top: 20px;
+    }
+    
+    .contact-info h2 {
+        margin-top: 0;
+    }
+
+
+
+    /* Our Services Section */
+    .col-md-6 {
+        width: 100%; /* Full width of the column */
+        height: 20%;
+        
+    }
+
+    .col-md-1{
+        margin-bottom: 20px;
+    }
+
+    .read-more{
+        margin-bottom: 50px;
+    }
+
+    #imgcontent2{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .footer{
+        text-align: center !important; 
+    }
+}

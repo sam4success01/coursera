@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<!-- About Sifrax -->
+<section class="video-sections">
+    <video autoplay muted loop>
+        <source src="{% static 'media/about.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<div class="overlay-box">
+    <h2>About Us</h2> <br>
+    <div class="overlay-text">
+        <p>At Sifrax Consulting, we prioritize innovation and technology integration, investing in research and development to continually enhance our financial consulting services and software solutions.</p><br>
+        <p>Client success is paramount; we provide personalized, results-driven services and leverage strategic partnerships with leading tech firms and financial institutions to deliver exceptional value.</p><br>
+        <p>We focus on sustainable growth and financial stability by developing comprehensive business plans and financial models for our clients. our strategic financial management ensures long-term success.</p><br>
+        <p>At Sifrax we are committed to accountability and transparency, we establish and monitor key performance indicators to measure and achieve client goals.</p>
+    </div>
+    
+</div>
+
+
+<!-- Mission and Vision Section -->
+<section class="picture-section">
+    <img src="{% static 'media/mission.jpeg' %}" alt="Picture" class="full-height-image">
+</section>
+
+<section class="content-section">
+    <div class="content-tabs text-center">
+        <button class="tab-button active" data-content="mission">Mission</button>
+        <button class="tab-button" data-content="vision">Vision</button>
+        <button class="tab-button" data-content="value">Values</button>
+        <button class="tab-button" data-content="objectives">Objectives</button>
+    </div>
+    <div class="tab-content active" id="mission">
+        <div class="content-box">
+            <img src="{% static 'media/mission.png' %}" alt="Logo" class="content-logo">
+            <h2>Mission</h2>
+            <p>To empower businesses and professionals globally with expert financial consulting, innovative solutions, and career development opportunities that drive success.</p>
+        </div>
+    </div>
+    <div class="tab-content" id="vision">
+        <div class="content-box">
+            <img src="{% static 'media/vision.png' %}" alt="Logo" class="content-logo">
+            <h2>Vision</h2>
+            <p>To be the global leader in financial consulting, driving success and growth for businesses and professionals worldwide through innovative solutions and strategic partnerships.</p>
+        </div>
+    </div>
+    <div class="tab-content" id="value">
+        <div class="row-wrapper">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value1.png' %}" alt="Logo" class="content-logo">
+                        <h6>Client Success</h6>
+                        <p>Our clients' success is our top priority, and we are dedicated to exceeding their expectations.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value2.png' %}" alt="Logo" class="content-logo">
+                        <h6>Integrity</h6>
+                        <p>We conduct our business with the highest standards of honesty and ethical behavior.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value3.png' %}" alt="Logo" class="content-logo">
+                        <h6>Innovation</h6>
+                        <p>We embrace technology and innovation to deliver strategic financial solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value4.png' %}" alt="Logo" class="content-logo">
+                        <h6>Excellence</h6>
+                        <p>We strive for excellence in everything we do, ensuring the highest quality of service.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value5.png' %}" alt="Logo" class="content-logo">
+                        <h6>Professional Growth</h6>
+                        <p>We are committed to the continuous professional development of our team and clients.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/value6.png' %}" alt="Logo" class="content-logo">
+                        <h6>Ethics</h6>
+                        <p>We adhere to the highest ethical standards in all our operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content" id="objectives">
+        <div class="row-wrapper">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal1.png' %}" alt="Logo" class="content-logo">
+                        <h6>Client Satisfaction</h6>
+                        <p>To achieve high client satisfaction through dedicated and personalized service.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal2.png' %}" alt="Logo" class="content-logo">
+                        <h6>Technology Integration</h6>
+                        <p>To leverage the latest technology to provide efficient and effective financial solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal3.png' %}" alt="Logo" class="content-logo">
+                        <h6>Market Leadership</h6>
+                        <p>To be the leading financial consulting firm recognized for our expertise & innovation.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal4.png' %}" alt="Logo" class="content-logo">
+                        <h6>Resource Optimization</h6>
+                        <p>To help our clients optimize their resources for maximum financial performance.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal5.png' %}" alt="Logo" class="content-logo">
+                        <h6>Strategic Success</h6>
+                        <p>To deliver successful strategic solutions targeted to our clients' unique business challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="content-box small-box">
+                        <img src="{% static 'media/goal6.png' %}" alt="Logo" class="content-logo">
+                        <h6>Professional Development</h6>
+                        <p>To offer continuous learning and career advancement programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+
+<!-- Teams Profile -->
+<div class="team-section">
+    <h3>Management Team</h3>
+    <div class="team-row">
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/sam.png' %}" alt="Team Member 1" class="team-img">
+                        <h4>Samuel Sonowo</h4>
+                        <p>CEO</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Samuel Sonowo</h4>
+                        <p>He is a chartered accountant with over a decade of experience in investment banking, stockbroking, and corporate finance. He holds a Bachelor's degree in Accounting from Babcock University.</p>
+                        <p>Samuel excels in financial analysis, strategic planning, and advanced data analytics using SQL and Power BI. He is skilled in software development, to profound business solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/isreal.png' %}" alt="Team Member 2" class="team-img">
+                        <h4>Israel Adelaja</h4>
+                        <p>Position 2</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Israel Adelaja</h4>
+                        <p>Israel is a chartered accountant and a Banking and Finance graduate from Yabatech, he has over a decade of experience in audit, assurance, and accounting. He specializes in various sectors.</p>
+                        <P>Israel focuses on ensuring audit quality, accurate financial reporting, training, compliance monitoring, and resolving complex financial matters using frameworks like the IFRS.</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/sam.png' %}" alt="Team Member 3" class="team-img">
+                        <h4>Mike Johnson</h4>
+                        <p>Position 3</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Mike Johnson</h4>
+                        <p>Mike specializes in Position 3 with over 10 years of experience...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="team-row">
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/sam.png' %}" alt="Team Member 4" class="team-img">
+                        <h4>Susan Lee</h4>
+                        <p>Position 4</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Susan Lee</h4>
+                        <p>Susan excels in Position 4 and has been with the company for 5 years...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/sam.png' %}" alt="Team Member 5" class="team-img">
+                        <h4>Robert Brown</h4>
+                        <p>Position 5</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Robert Brown</h4>
+                        <p>Robert is known for his expertise in Position 5...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team-col">
+            <div class="team-box" onclick="flipCard(this)">
+                <div class="team-box-inner">
+                    <div class="team-box-front">
+                        <img src="{% static 'media/sam.png' %}" alt="Team Member 6" class="team-img">
+                        <h4>Linda Green</h4>
+                        <p>Position 6</p>
+                    </div>
+                    <div class="team-box-back">
+                        <h4>Linda Green</h4>
+                        <p>Linda has a deep understanding of Position 6 and contributes significantly to the team...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

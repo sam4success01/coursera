@@ -1,4 +1,6 @@
-#!/Users/samuel/Desktop/Coursera/Django/Projects/dcrm/virt/bin/python3.11
+#!/bin/sh
+'''exec' "/Users/mac/Desktop/dev/coursera/Projects/HLC dcrm/virt/bin/python3.12" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
